@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+h1,h2,h3,h4,p,ul,li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+header .logo {
+    color: white;
+    border: solid 1px white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+header {
+    padding: 10px 50px;
+    background: #e98585;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.menu i:after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    bottom: -9px;
+    height: 2px;
+    background: white;
+    left: 5px;
+}
+.menu i:before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: white;
+    top: -8px;
+    left: -5px;
+}
+.menu i {
+    width: 20px;
+    position: absolute;
+    height: 2px;
+    background: white;
+    top: 11px;
+    left: 5px;
+}
+.menu {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+main h1 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px #e1e1e1;
+}
+main {
+    padding: 0px 50px;
+}
+.right p {
+    color: white;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.right {
+    display: flex;
+    align-items: center;
+}
