@@ -7,7 +7,9 @@ var app = new Vue({
         myNombre: 'Franccesco',
         myApellido: 'De La Rosa',
         isCanchas: true,
-        myCanchas: []
+        myCanchas: [],
+        myCanchasSeleccionadas: [],
+        isSelecciona: false
     },
     components: {
         Cancha,
@@ -37,6 +39,32 @@ var app = new Vue({
                 .catch(error => {
                     console.error('Error fetching filtered data:', error);
                 }); */       
+        },
+        handerdlCancha: function(id) {            
+            this.myCanchas.forEach(cancha => {
+                if (cancha.id == id) {
+                    let valida = true;
+                    this.myCanchasSeleccionadas.forEach(cc => {
+                        if (cc.id == id) {
+                            valida = false;
+                        }
+                    });
+                    if (valida) {
+                        this.myCanchasSeleccionadas.push(cancha); 
+                    }                   
+                }
+            });
+            this.isSelecciona = true;
+        },
+        handerlRemoveCancha: function(id) {
+            this.myCanchasSeleccionadas.forEach((item, index) => {
+                if (item.id === id) {
+                    this.myCanchasSeleccionadas.splice(index, 1);
+                }
+            });            
+            if (this.myCanchasSeleccionadas.length == 0) {
+                this.isSelecciona = false;  
+            }            
         }
     },
     mounted() {
@@ -51,8 +79,8 @@ var app = new Vue({
     },
     template: `
         <div>
-            <Header :nombre="myNombre" :apellido="myApellido" />
-            <Cancha :canchas="myCanchas" :iscanchas="isCanchas"/>
+            <Header :nombre="myNombre" :apellido="myApellido" :isselecciona="isSelecciona" :canchas="myCanchasSeleccionadas" @clickcancharemove="handerlRemoveCancha"/>
+            <Cancha :canchas="myCanchas" :iscanchas="isCanchas" @clickcancha="handerdlCancha" />
         </div>
     `
 })

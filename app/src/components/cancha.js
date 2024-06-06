@@ -5,8 +5,9 @@ export default {
                 <h1>Las mejores canchas de Lima ahora cerca de ti</h1>
                 <div class="listCanchas">
                     <ul v-if="iscanchas">
-                        <li v-for="cancha in canchas" :key="cancha.id">
-                            {{ cancha.nombre }}
+                        <li v-for="cancha in canchas" :key="cancha.id" @click="clickHanderdl(cancha.id)">
+                            <i></i>        
+                            <span>{{ cancha.nombre }}</span>
                         </li>
                     </ul>
                     <p v-else="iscanchas" class="notCanchas">
@@ -23,6 +24,11 @@ export default {
         iscanchas: {
             type: Boolean,
             requerid: true
+        }
+    },
+    methods: {
+        clickHanderdl(id) {
+            this.$emit("clickcancha", id);
         }
     },
     name: 'Cancha',
