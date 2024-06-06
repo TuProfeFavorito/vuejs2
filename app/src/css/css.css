@@ -74,3 +74,10 @@ main {
     display: flex;
     align-items: center;
 }
+.listCanchas li {
+    background: #e7e7e7;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
